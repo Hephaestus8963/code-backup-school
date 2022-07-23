@@ -1,4 +1,4 @@
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 #region Linear Search
 def LinearSearch(arr, item):
@@ -13,14 +13,14 @@ def LinearSearch(arr, item):
 #endregion
 
 def BinarySearch(arr, item):
-    # The list sorts the array in ascending order
+    # The algorithm sorts the array in ascending order
     # The sorting algorithm has been left out for testing purposes
 
     # This version of the algorithm uses indexing to find out the search query
     First = 0
     Last = len(arr)
     Middle = (First + Last) // 2
-    # It first finds the middle element of the list and checks if they ar equal
+    # It first finds the middle element of the list and checks if they are equal
     # If they are, we return the middle index
 
     # [a, b, c, d, e]
@@ -43,7 +43,7 @@ def BinarySearch(arr, item):
 
         elif item < arr[Middle]:
             Last = Middle - 1
-        #If the middle element is larger than the item, we deacrease the list size to the left-hand elements of the array
+        # If the middle element is larger than the item, we deacrease the list size to the left-hand elements of the array
 
         # let item <- a
         # [a, b, c, d, e]
@@ -55,5 +55,3 @@ def BinarySearch(arr, item):
         
     # We repeat until middle = item, then return middle
     return Middle
-
-print(BinarySearch(arr, 9))
