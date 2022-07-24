@@ -1,5 +1,4 @@
-import random
-
+arr = [25, 28, 13, 35, 50]
 #Goal: find the third largest value of the array.
 
 def FindThirdLargest(arr):
