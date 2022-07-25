@@ -1,4 +1,3 @@
-arr = [x for x in range(0, 17)]
 
 #region Linear Search
 def LinearSearch(arr, item):
@@ -70,6 +69,3 @@ def RecursiveBinarySearch(arr, item, first, last):
 
     return middle
 #endregion
-
-print(arr)
-print(RecursiveBinarySearch(arr, 3, 0, len(arr)))
