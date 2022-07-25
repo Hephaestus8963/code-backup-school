@@ -6,10 +6,16 @@ def BubbleSort(arr):
     while swap == True:
         swap = False
         # We reset swap to false because at the start of the array, we haven't swapped any variables.
-        for i in range(len(arr) - 1):# We loop until we get to the second last element. Done so that we can have arr[i+1]
+        n = 1
+        # n is the number of values that have already been sorted i.e. how many elements have bubbled up
+        # It is initialised as 1 because at the start we have len(arr) - 1 elements at the start
+        # initialising it with 0 and subtracting it from len(arr) along with 1 is the same
+        for i in range(len(arr) - n):
             if arr[i] > arr[i + 1]:
                 arr[i], arr[i+1] = arr[i+1], arr[i] #Swapping elements
                 swap = True
+        
+        n += 1
         # If the swap variable is true here this means the list has shuffled elements and needs to be checked again.
         # If not, the list has no shuffled elements and so the list is sorted.
 # endrgion
@@ -26,3 +32,8 @@ def InsertionSort(arr):
             arr[j - 1], arr[j] = arr[j], arr[j - 1]
             j -= 1
 # endregion
+
+#region [Needs Attention] Quick Sort Algorithm
+def QuickSort(arr):
+    pass
+#endregion

@@ -17,8 +17,8 @@ def FindThirdLargest(arr):
 
         # This is a normal highest finding condition
         # this is done until first is the maximum value
-        if arr[i] > first: # INFO: This bit of code will work if the list is
-            third = second # sorted and has a small number of values
+        if arr[i] > first:
+            third = second
             second = first
             first = arr[i]
 

@@ -1,4 +1,4 @@
-
+arr = [x for x in range(0, 17)]
 
 #region Linear Search
 def LinearSearch(arr, item):
@@ -12,7 +12,8 @@ def LinearSearch(arr, item):
     return arrLength
 #endregion
 
-def BinarySearch(arr, item):
+#region Binary Search {Indexing}
+def IndexedBinarySearch(arr, item):
     # The algorithm sorts the array in ascending order
     # The sorting algorithm has been left out for testing purposes
 
@@ -55,3 +56,20 @@ def BinarySearch(arr, item):
         
     # We repeat until middle = item, then return middle
     return Middle
+#endregion
+
+#region Binary Search {Recursion}
+def RecursiveBinarySearch(arr, item, first, last):
+
+    middle = (first + last) // 2
+
+    if arr[middle] < item:
+        middle = RecursiveBinarySearch(arr, item , middle, last)
+    elif arr[middle] > item:
+        middle = RecursiveBinarySearch(arr, item, first, middle)
+
+    return middle
+#endregion
+
+print(arr)
+print(RecursiveBinarySearch(arr, 3, 0, len(arr)))
