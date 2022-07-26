@@ -8,8 +8,10 @@ def LinearSearch(arr, item):
     arrLength = len(arr) - 1
     while arrLength > -1 and arr[arrLength] != item:
         arrLength -= 1
-    
-    return arrLength
+    if arr[arrLength] == item:
+        return arrLength
+    else:
+        raise IndexError('Item not found.')
 #endregion
 
 def BinarySearch(arr, item):
@@ -27,9 +29,11 @@ def BinarySearch(arr, item):
     #  ^  ~  ^  ~  ^
     # start, middle, last
 
+    if item < arr[0] or item > arr[-1]:
+        raise IndexError('Item too large for list.')
+
 
     while item != arr[Middle]:
-
         if item > arr[Middle]:
             First = Middle
         # If the middle element is smaller than item, we deacrease the list size to the right-hand elements of the array
@@ -51,7 +55,34 @@ def BinarySearch(arr, item):
         # start, middle, last
 
         # we then reloop through the new array
+        if First == Last and item != arr[Middle]:
+            raise IndexError('Item not found')
+        
         Middle = (First + Last) // 2
         
     # We repeat until middle = item, then return middle
     return Middle
+#endregion
+
+#region Binary Search {Recursion}
+def RecursiveBinarySearch(arr, item, first, last):
+
+    if last - first == 1:
+        if item == arr[last]:
+            return last
+        elif item == arr[first]:
+            return first
+        else:
+            raise IndexError('Item not found.')
+        
+
+    middle = (first + last) // 2
+
+    print(first, last, middle, arr[middle], item)
+    if arr[middle] < item:
+        middle = RecursiveBinarySearch(arr, item , middle, last)
+    elif arr[middle] > item:
+        middle = RecursiveBinarySearch(arr, item, first, middle)
+
+    return middle
+#endregion
