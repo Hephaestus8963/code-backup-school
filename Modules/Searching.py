@@ -1,5 +1,4 @@
 
-
 #region Linear Search
 def LinearSearch(arr, item):
     # The linear search algorithm goes through the lisr arr,
@@ -8,10 +7,11 @@ def LinearSearch(arr, item):
     arrLength = len(arr) - 1
     while arrLength > -1 and arr[arrLength] != item:
         arrLength -= 1
-    if arr[arrLength] == item:
-        return arrLength
-    else:
-        raise IndexError('Item not found.')
+    if arrLength == -1:
+        raise IndexError('Item Not Found')
+    
+    return arrLength
+
 #endregion
 
 def BinarySearch(arr, item):
