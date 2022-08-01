@@ -1,15 +1,29 @@
 TheData = [20, 3, 4, 8, 12, 99, 4, 26, 4]
 
-def InsertionSort(TheData):
-    for count in range(1, len(TheData)):
-        reverseCount = count
-        while TheData[count - 1] > TheData[count] and reverseCount > 0:
-            TheData[count] , TheData[count - 1] = TheData[count - 1] , TheData[count]
-            reverseCount -= 1
+def InsertionSort(arr):
+    for i in range(0, len(arr)):
+        j = i
+        while arr[j] < arr[j-1] and j > 0:
+            arr[j - 1], arr[j] = arr[j], arr[j - 1]
+            j -= 1
     
-def PrintArray(TheData):
-    for i in range(len(TheData)):
-        print(TheData[i])
+def PrintArray(arr):
+    for i in range(len(arr)):
+        print(arr[i])
 
-InsertionSort(TheData)
-PrintArray(TheData)
+def LinearSearch(arr):
+    item = int(input("Enter number: "))
+    found = False
+    count = 0
+    while count < len(arr) and not found:
+        if item == arr[count]:
+            print("Found")
+            found = True
+            return found
+        
+        count += 1
+    
+    print("Not found")
+    return found
+    
+LinearSearch(TheData)
