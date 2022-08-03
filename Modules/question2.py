@@ -14,10 +14,10 @@ class HiddenBox:
         self.__IsActive = False
         self.__LastFoundBy = [["" for j in range(0, 10)] for i in range(0, 2)] 
 
-    def GetBoxName():
+    def GetBoxName(self):
         return self.__BoxName
     
-    def GetGameLocation():
+    def GetGameLocation(self):
         return self.__GameLocation
     
 
@@ -25,7 +25,7 @@ class PuzzleBox(HiddenBox):
     #__PuzzleText String
     #__Solution String
 
-    def __init__(self, BoxName, CreatorName, DateHidden, GameLocation):
+    def __init__(self, BoxName, CreatorName, DateHidden, GameLocation, PuzzleText, Solution):
         super().__init__(BoxName, CreatorName, DateHidden, GameLocation)
         self.__PuzzleText = PuzzleText
         self.__Solution = Solution
@@ -35,13 +35,13 @@ class PuzzleBox(HiddenBox):
 
 TheBoxes = [HiddenBox("", "", "", "") for i in range(0, 10000)]
 
-def NewBox(TheBoxes, BoxNum):
+def NewBox():
     NewBoxName = input("Enter name of new box: ")
     NewCreatorName = input("Enter new creator name: ")
     NewDateHidden = input("Enter new date hidden: ")
     NewGameLocation = input("Enter new game location for box: ")
-    TheBoxes[BoxNum] = HiddenBox(NewBoxName, NewCreatorName, NewDateHidden, NewGameLocation)
-    return BoxNum + 1
+    return HiddenBox(NewBoxName, NewCreatorName, NewDateHidden, NewGameLocation)
 
-NumBoxes = 0
-NumBoxes = NewBox(TheBoxes, NumBoxes)
+for i in TheBoxes:
+    i = NewBox()
+
