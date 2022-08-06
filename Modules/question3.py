@@ -14,8 +14,7 @@ def Enqueue(item):
     Last += 1
     return True
 
-def ReadFile():
-    FileName = input("Enter file name: ")
+def ReadFile(FileName):
     try:
         file = open(FileName)
         line = file.readline()
@@ -34,10 +33,13 @@ def Remove():
     second = QueueData.get()
     return (first + "" + second)
 
-ProcessReturns = ReadFile()
-if ProcessReturns == -1:
-    print("Text file could not be found.")
-elif ProcessReturns == 1:
-    print("THe queue is full.")
-elif ProcessReturns == 2:
-    print("All items were successfully added to queue.")
+FileToRead = ""
+while FileToRead != "Stop":
+    FileToRead = input("Enter File Name: ")
+    ProcessReturns = ReadFile(FileToRead)
+    if ProcessReturns == -1:
+        print("Text file could not be found.")
+    elif ProcessReturns == 1:
+        print("THe queue is full.")
+    elif ProcessReturns == 2:
+        print("All items were successfully added to queue.")
