@@ -17,11 +17,11 @@ def Enqueue(item):
 def ReadFile(FileName):
     try:
         file = open(FileName)
-        line = file.readline()
-        if Enqueue(line):
-            return 2
-        else:
-            return 1
+        for line in file:
+            if Enqueue(line):
+                return 2
+            else:
+                return 1
     except:
         return -1
 
@@ -35,6 +35,7 @@ def Remove():
 
 FileToRead = ""
 while FileToRead != "Stop":
+    print(QueueData.qsize())
     FileToRead = input("Enter File Name: ")
     ProcessReturns = ReadFile(FileToRead)
     if ProcessReturns == -1:
