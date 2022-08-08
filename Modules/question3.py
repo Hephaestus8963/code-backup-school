@@ -1,18 +1,15 @@
-from queue import Queue
-
-QueueData = Queue(20)
-First = 0
-Last = QueueData.qsize()
-
-for i in range(10): QueueData.put(i)
+QueueData = ["" for i in range(20)]
+FirstPos = 0
+LastPos = 0
 
 def Enqueue(item):
-    if QueueData.empty(): return False
-    
-    global Last
-    QueueData.put(item)
-    Last += 1
-    return True
+    if LastPos >= 19:
+        return False    
+    else:
+        global LastPos
+        QueueData[LastPos + 1] = item
+        LastPos += 1
+        return True
 
 def ReadFile(FileName):
     try:
@@ -26,16 +23,15 @@ def ReadFile(FileName):
         return -1
 
 def Remove():
-    if Last < 2:
+    if LastPos < 2:
         return "No Items"
     
-    first = QueueData.get()
-    second = QueueData.get()
+    first,second = QueueData[FirstPos], QueueData[FirstPos + 1]
+    QueueData[FirstPos], QueueData[FirstPos + 1] = ""
     return (first + "" + second)
 
 FileToRead = ""
 while FileToRead != "Stop":
-    print(QueueData.qsize())
     FileToRead = input("Enter File Name: ")
     ProcessReturns = ReadFile(FileToRead)
     if ProcessReturns == -1:
