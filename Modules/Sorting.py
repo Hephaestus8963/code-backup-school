@@ -3,15 +3,20 @@ def BubbleSort(arr):
     swap = True
     # The swap variable keeps track of whether or not any elements in the array were swaped. 
     # If the swap variable is false at the end of the array, no elements were swapped because the list is sorted.
+    SortedNum = 1
+    # SortedNum stored the number of elements in the array that are sorted. We will not be looping through them since we know they are sorted.
+    # The part of the array that will be looped though decreases as this increases.
     while swap == True:
         swap = False
         # We reset swap to false because at the start of the array, we haven't swapped any variables.
-        for i in range(len(arr) - 1):# We loop until we get to the second last element. Done so that we can have arr[i+1]
+        for i in range(len(arr) - SortedNum):# We loop until we get to the second last element. Done so that we can have arr[i+1]
             if arr[i] > arr[i + 1]:
                 arr[i], arr[i+1] = arr[i+1], arr[i] #Swapping elements
                 swap = True
         # If the swap variable is true here this means the list has shuffled elements and needs to be checked again.
         # If not, the list has no shuffled elements and so the list is sorted.
+        SortedNum += 1
+        # We increment SortedNum when one element has bubbled to its position completely.
 # endrgion
 
 #region Insertion Sort Algorithm
