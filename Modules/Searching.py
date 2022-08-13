@@ -1,5 +1,5 @@
 
-#region Linear Search
+# Linear Search
 def LinearSearch(arr, item):
     # The linear search algorithm goes through the lisr arr,
     # comparing item to each element of arr
@@ -12,8 +12,7 @@ def LinearSearch(arr, item):
     
     return arrLength
 
-#endregion
-
+# Binary Search by indexing
 def BinarySearch(arr, item):
     # The algorithm sorts the array in ascending order
     # The sorting algorithm has been left out for testing purposes
@@ -62,9 +61,9 @@ def BinarySearch(arr, item):
         
     # We repeat until middle = item, then return middle
     return Middle
-#endregion
 
-#region Binary Search {Recursion}
+
+# Binary Search by Recursion
 def RecursiveBinarySearch(arr, item, first, last):
 
     if last - first == 1:
@@ -85,4 +84,4 @@ def RecursiveBinarySearch(arr, item, first, last):
         middle = RecursiveBinarySearch(arr, item, first, middle)
 
     return middle
-#endregion
+
