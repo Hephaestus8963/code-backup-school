@@ -57,8 +57,8 @@ class Vector2D:
     
     def __init__(self, startPoint = Point2D.empty(), endPoint = Point2D.empty(), run = None, rise = None) -> None:
         if rise == None and run == None:
-            rise = (endPoint.x - startPoint.x)
-            run = (endPoint.y - startPoint.y)
+            run = (endPoint.x - startPoint.x)
+            rise = (endPoint.y - startPoint.y)
         elif startPoint == Point2D.empty() and endPoint == Point2D.empty:
             pass
 
@@ -78,4 +78,28 @@ class Vector2D:
     def normalized(self):
         Magnitude = self.getMagnitude()
         return Vector2D(run = self.x/Magnitude, rise = self.y/Magnitude)
+
+    def __add__(self, VectorO):
+        return Vector2D(run = self.x + VectorO.x, rise = self.y + VectorO.y)
+    
+    def __sub__(self, VectorO):
+        return Vector2D(run = self.x - VectorO.x, rise = self.y - VectorO.y)
+    
+    def __mul__(self, scaleFactor:int):
+        return Vector2D(run = self.x * scaleFactor, rise = self.y * scaleFactor)
+    
+    def __truediv__(self, scaleFactor:int):
+        if scaleFactor == 0:
+            raise ValueError("Math error: Divide by zero.")
+        
+        return Vector2D(run = self.x / scaleFactor, rise = self.y / scaleFactor)
+    
+    def __eq__(self, VectorO) -> bool:
+        return self.x == VectorO.x and self.y == VectorO.y
+    
+    def __ne__(self, VectorO) -> bool:
+        return self.x != VectorO.x and self.y != VectorO.y
+    
+    def areParallel(self, VectorO) -> bool:
+        return int(self.getDirectionFromCenter()) == int(VectorO.getDirectionFromCenter())
     
