@@ -1,12 +1,16 @@
-from Package1.Classes import Point2D, Vector2D
+from Package1 import MathObjects as Math
+import math
 
-Origin = Point2D.origin()
-PointP = Point2D(3, 4)
+VectA = Math.Vector2D(rise = 4, run = 3)
 
-PosP = Vector2D(Origin, PointP)
+clock180 = Math.EulerAngle(math.pi)
 
-VectorAB = Vector2D(run = 6, rise = 8)
+MatR = Math.Rotation(clock180)
 
-print(PosP)
-print(VectorAB)
-print(PosP.areParallel(VectorAB))
+
+print(MatR.elemA, MatR.elemB, MatR.elemC, MatR.elemD)
+
+VectR = MatR * VectA
+
+print(VectA)
+print(VectR)
