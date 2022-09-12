@@ -172,10 +172,10 @@ class Rotation(Matrix2X2):
         if relativeTo == None:
             self.__rotationSize = rotationInRadians.radians
             super().__init__(
-                round(math.cos(self.__rotationSize)),
-                round(math.sin(self.__rotationSize)),
-                round(-math.sin(self.__rotationSize)),
-                round(math.cos(self.__rotationSize))
+                math.cos(self.__rotationSize),
+                math.sin(self.__rotationSize),
+                math.sin(self.__rotationSize),
+                math.cos(self.__rotationSize)
             )
     
 class Scaling(Matrix2X2):
